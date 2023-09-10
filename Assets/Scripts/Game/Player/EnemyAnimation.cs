@@ -10,7 +10,7 @@ namespace TDS.Game.Player
 
         [SerializeField] private Animator _animator;
 
-        private EnemyService _enemyService;
+        private EnemyHpService _enemyHpService;
 
         #endregion
 
@@ -18,8 +18,8 @@ namespace TDS.Game.Player
 
         private void Start()
         {
-            _enemyService = FindObjectOfType<EnemyService>();
-            _enemyService.OnEnemyDied += PlayDeath;
+            _enemyHpService = FindObjectOfType<EnemyHpService>();
+            _enemyHpService.OnEnemyDied += PlayDeath;
         }
 
         #endregion

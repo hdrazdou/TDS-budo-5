@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7648774838963847497}
   - component: {fileID: 424869694680605967}
-  m_Layer: 0
+  - component: {fileID: 3723616080003912597}
+  m_Layer: 7
   m_Name: ZombieArmy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,8 +49,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 2864093266970409649, guid: 11c6cc1b4827449df974ba1a1f107a36, type: 3}
   _bulletSpawnSpot: {fileID: 1584885164056206975}
-  _enemyService: {fileID: 0}
+  enemyHpService: {fileID: 0}
   _attackDelay: 2
+--- !u!114 &3723616080003912597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602606175603753381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6479f594c8684291a16bf07abe9f758f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2920601700811852786
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584885164056206975}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawnSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

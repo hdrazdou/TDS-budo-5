@@ -9,9 +9,10 @@ namespace TDS.Game.Player
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Death = Animator.StringToHash("Death");
         private static readonly int Speed = Animator.StringToHash("Speed");
+        
         [SerializeField] private Animator _animator;
 
-        private GameService _gameService;
+        private UserHpService _userHpService;
 
         #endregion
 
@@ -19,8 +20,8 @@ namespace TDS.Game.Player
 
         private void Start()
         {
-            _gameService = FindObjectOfType<GameService>();
-            _gameService.OnUserDied += PlayDeath;
+            _userHpService = FindObjectOfType<UserHpService>();
+            _userHpService.OnUserDied += PlayDeath;
         }
 
         #endregion

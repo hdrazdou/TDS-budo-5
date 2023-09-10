@@ -13,12 +13,12 @@ namespace TDS.Game.Player
         [Header("Components")]
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnSpot;
-        [SerializeField] private EnemyService _enemyService;
+        [SerializeField] private EnemyHpService enemyHpService;
 
         [Header("Settings")]
         [SerializeField] private float _attackDelay = 2;
 
-        private GameService _gameService;
+        private UserHpService _userHpService;
         private Vector3 _playerPosition;
         private Transform _playerTransform;
 
@@ -28,8 +28,8 @@ namespace TDS.Game.Player
 
         private void Start()
         {
-            _gameService = FindObjectOfType<GameService>();
-            _enemyService = FindObjectOfType<EnemyService>();
+            _userHpService = FindObjectOfType<UserHpService>();
+            enemyHpService = FindObjectOfType<EnemyHpService>();
 
             FindPlayer();
             StartCoroutine(Attack());
@@ -46,12 +46,12 @@ namespace TDS.Game.Player
 
         private IEnumerator Attack()
         {
-            while (!_gameService.isUserDead)
+            while (!_userHpService.isUserDead)
             {
                 yield return new WaitForSeconds(_attackDelay);
                 Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
                 yield return new WaitForSeconds(_attackDelay);
-                _enemyService.Hp = 0;
+                enemyHpService.Hp = 0;
             }
         }
 

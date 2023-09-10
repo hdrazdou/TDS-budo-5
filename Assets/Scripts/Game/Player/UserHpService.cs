@@ -3,12 +3,15 @@ using UnityEngine;
 
 namespace TDS.Game.Player
 {
-    public class GameService : MonoBehaviour
+    public class UserHpService : MonoBehaviour
     {
         #region Variables
 
-        private int _hp = 3;
+        [Header("Settings")]
+        [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private int _initHp = 3;
 
+        private int _hp = 3;
         private bool _isUserDead;
 
         #endregion
@@ -35,6 +38,11 @@ namespace TDS.Game.Player
                 {
                     OnHpChanged?.Invoke();
                 }
+
+                if (_hp <= 0)
+                {
+                    isUserDead = true;
+                }
             }
         }
 
@@ -58,7 +66,25 @@ namespace TDS.Game.Player
 
         private void Start()
         {
+            SetInitValues();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if ((_layerMask.value & (1 << other.gameObject.layer)) != 0)
+            {
+                Hp--;
+            }
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private void SetInitValues()
+        {
             isUserDead = false;
+            Hp = _initHp;
         }
 
         #endregion
