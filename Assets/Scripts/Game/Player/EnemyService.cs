@@ -22,12 +22,11 @@ namespace TDS.Game.Player
         public int Hp
         {
             get => _hp;
-            private set
+            set
             {
-                bool needNotify = _hp != value;
                 _hp = value;
 
-                if (needNotify)
+                if (_hp <= 0)
                 {
                     OnEnemyDied?.Invoke();
                 }

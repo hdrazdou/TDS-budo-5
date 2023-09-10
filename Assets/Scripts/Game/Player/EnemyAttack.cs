@@ -13,6 +13,7 @@ namespace TDS.Game.Player
         [Header("Components")]
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnSpot;
+        [SerializeField] private EnemyService _enemyService;
 
         [Header("Settings")]
         [SerializeField] private float _attackDelay = 2;
@@ -28,6 +29,7 @@ namespace TDS.Game.Player
         private void Start()
         {
             _gameService = FindObjectOfType<GameService>();
+            _enemyService = FindObjectOfType<EnemyService>();
 
             FindPlayer();
             StartCoroutine(Attack());
@@ -48,6 +50,8 @@ namespace TDS.Game.Player
             {
                 yield return new WaitForSeconds(_attackDelay);
                 Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
+                yield return new WaitForSeconds(_attackDelay);
+                _enemyService.Hp = 0;
             }
         }
 
