@@ -16,8 +16,6 @@ namespace TDS.Game.Player
 
         #region Unity lifecycle
 
-        private void Start() { }
-
         private void Update()
         {
             Rotate();
@@ -45,6 +43,7 @@ namespace TDS.Game.Player
         {
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             worldMousePosition.z = 0;
+
             Vector3 direction = worldMousePosition - transform.position;
             transform.up = direction;
         }

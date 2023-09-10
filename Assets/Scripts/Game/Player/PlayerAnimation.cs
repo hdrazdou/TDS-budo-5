@@ -9,6 +9,7 @@ namespace TDS.Game.Player
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Death = Animator.StringToHash("Death");
         private static readonly int Speed = Animator.StringToHash("Speed");
+
         [SerializeField] private Animator _animator;
 
         #endregion
