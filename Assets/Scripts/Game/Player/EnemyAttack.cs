@@ -47,7 +47,6 @@ namespace TDS.Game.Player
             while (!_gameService.isUserDead)
             {
                 yield return new WaitForSeconds(_attackDelay);
-                Debug.Log($"EnemyAttack Attack isUserDead {_gameService.isUserDead}");
                 Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
             }
         }
