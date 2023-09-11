@@ -56,8 +56,15 @@ namespace TDS.Game.Player
                 if (_isUserDead)
                 {
                     OnUserDied?.Invoke();
+                    RestartLevel();
                 }
             }
+        }
+
+        private void RestartLevel()
+        {
+            SceneLoader sceneLoader = FindObjectOfType<SceneLoader>();
+            StartCoroutine(sceneLoader.ReloadScene());
         }
 
         #endregion
