@@ -1,27 +1,24 @@
 using System;
-using TDS.Game.Services;
 using UnityEngine;
 
-namespace TDS.Game.Player
+namespace TDS.Game.Enemy
 {
-    public class PlayerHpService : MonoBehaviour
+    public class EnemyHpService : MonoBehaviour
     {
         #region Variables
 
         [Header("Settings")]
+        [SerializeField] private int _initHp;
         [SerializeField] private LayerMask _layerMask;
-        [SerializeField] private int _initHp = 3;
 
-        private int _hp = 3;
-        private bool _isUserDead;
+        private int _hp;
+        private bool _isEnemyDead;
 
         #endregion
 
         #region Events
 
-        public event Action OnHpChanged;
-
-        public event Action OnUserDied;
+        public event Action OnEnemyDied;
 
         #endregion
 
@@ -32,32 +29,25 @@ namespace TDS.Game.Player
             get => _hp;
             set
             {
-                bool needNotify = _hp != value;
                 _hp = value;
-
-                if (needNotify)
-                {
-                    OnHpChanged?.Invoke();
-                }
 
                 if (_hp <= 0)
                 {
-                    isUserDead = true;
+                    isEnemyDead = true;
                 }
             }
         }
 
-        public bool isUserDead
+        public bool isEnemyDead
         {
-            get => _isUserDead;
-            private set
+            get => _isEnemyDead;
+            set
             {
-                _isUserDead = value;
+                _isEnemyDead = value;
 
-                if (_isUserDead)
+                if (_isEnemyDead)
                 {
-                    OnUserDied?.Invoke();
-                    RestartLevel();
+                    OnEnemyDied?.Invoke();
                 }
             }
         }
@@ -83,16 +73,10 @@ namespace TDS.Game.Player
 
         #region Private methods
 
-        private void RestartLevel()
-        {
-            SceneLoader sceneLoader = FindObjectOfType<SceneLoader>();
-            StartCoroutine(sceneLoader.ReloadScene());
-        }
-
         private void SetInitValues()
         {
-            isUserDead = false;
             Hp = _initHp;
+            isEnemyDead = false;
         }
 
         #endregion

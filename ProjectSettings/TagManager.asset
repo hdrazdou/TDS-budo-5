@@ -15,7 +15,7 @@ TagManager:
   - Enemy
   - PlayerBullet
   - EnemyBullet
-  - 
+  - HpBooster
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 3204496807
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

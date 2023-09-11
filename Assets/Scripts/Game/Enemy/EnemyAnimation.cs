@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Game.Player
+namespace TDS.Game.Enemy
 {
     public class EnemyAnimation : MonoBehaviour
     {
@@ -8,9 +8,9 @@ namespace TDS.Game.Player
 
         private static readonly int Death = Animator.StringToHash("Death");
 
-        [SerializeField] private Animator _animator;
+        public EnemyHpService _enemyHpService;
 
-        private EnemyHpService _enemyHpService;
+        [SerializeField] private Animator _animator;
 
         #endregion
 
@@ -18,8 +18,13 @@ namespace TDS.Game.Player
 
         private void Start()
         {
-            _enemyHpService = FindObjectOfType<EnemyHpService>();
+            _enemyHpService = GetComponent<EnemyHpService>();
             _enemyHpService.OnEnemyDied += PlayDeath;
+        }
+
+        private void OnDestroy()
+        {
+            _enemyHpService.OnEnemyDied -= PlayDeath;
         }
 
         #endregion

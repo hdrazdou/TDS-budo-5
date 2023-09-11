@@ -1,7 +1,8 @@
 using System.Collections;
+using TDS.Game.Player;
 using UnityEngine;
 
-namespace TDS.Game.Player
+namespace TDS.Game.Enemy
 {
     public class EnemyAttack : MonoBehaviour
     {
@@ -13,7 +14,7 @@ namespace TDS.Game.Player
         [Header("Components")]
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnSpot;
-        [SerializeField] private EnemyHpService enemyHpService;
+        [SerializeField] private EnemyHpService _enemyHpService;
 
         [Header("Settings")]
         [SerializeField] private float _attackDelay = 2;
@@ -28,8 +29,7 @@ namespace TDS.Game.Player
 
         private void Start()
         {
-            _playerHpService = FindObjectOfType<PlayerHpService>();
-            enemyHpService = FindObjectOfType<EnemyHpService>();
+            _enemyHpService = GetComponent<EnemyHpService>();
 
             FindPlayer();
             StartCoroutine(Attack());
@@ -37,6 +37,11 @@ namespace TDS.Game.Player
 
         private void Update()
         {
+            if (_enemyHpService.isEnemyDead)
+            {
+                return;
+            }
+
             Rotate();
         }
 
@@ -46,19 +51,17 @@ namespace TDS.Game.Player
 
         private IEnumerator Attack()
         {
-            while (!_playerHpService.isUserDead)
+            while (!_playerHpService.isUserDead && !_enemyHpService.isEnemyDead)
             {
                 yield return new WaitForSeconds(_attackDelay);
                 Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
-                yield return new WaitForSeconds(_attackDelay);
-                enemyHpService.Hp = 0;
             }
         }
 
         private void FindPlayer()
         {
-            PlayerAnimation playerAnimation = FindObjectOfType<PlayerAnimation>();
-            _playerTransform = playerAnimation.transform;
+            _playerHpService = FindObjectOfType<PlayerHpService>();
+            _playerTransform = _playerHpService.transform;
         }
 
         private void Rotate()

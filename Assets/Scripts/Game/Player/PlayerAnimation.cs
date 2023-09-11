@@ -24,6 +24,11 @@ namespace TDS.Game.Player
             _playerHpService.OnUserDied += PlayDeath;
         }
 
+        private void OnDestroy()
+        {
+            _playerHpService.OnUserDied -= PlayDeath;
+        }
+
         #endregion
 
         #region Public methods

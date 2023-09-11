@@ -17,7 +17,7 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 240, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
-  - {fileID: 8393535282632613179}
+  - {fileID: 72251285987241085}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
@@ -84,7 +84,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Model
+  m_Name: ZombieAnimationControler
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Death
@@ -106,7 +106,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1101 &8393535282632613179
+--- !u!1101 &72251285987241085
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

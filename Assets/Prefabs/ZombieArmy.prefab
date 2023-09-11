@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7648774838963847497}
   - component: {fileID: 424869694680605967}
   - component: {fileID: 3723616080003912597}
+  - component: {fileID: 5738159183776695912}
+  - component: {fileID: 1792262156547476347}
   m_Layer: 7
   m_Name: ZombieArmy
   m_TagString: Untagged
@@ -33,7 +35,7 @@ Transform:
   - {fileID: 2347443935999816166}
   - {fileID: 1584885164056206975}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &424869694680605967
 MonoBehaviour:
@@ -63,6 +65,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6479f594c8684291a16bf07abe9f758f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initHp: 3
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &5738159183776695912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602606175603753381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0773e605159647db8b007acf31fe8573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2240721172638106697}
+--- !u!58 &1792262156547476347
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602606175603753381}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.73
 --- !u!1 &2920601700811852786
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +159,6 @@ GameObject:
   - component: {fileID: 2347443935999816166}
   - component: {fileID: 1951818925979023187}
   - component: {fileID: 2240721172638106697}
-  - component: {fileID: 6754589913916329298}
   m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
@@ -201,38 +254,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &6754589913916329298
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7825448651180935058}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: -0.58}
-  m_Size: {x: 1.98, y: 1.08}
-  m_Direction: 1
