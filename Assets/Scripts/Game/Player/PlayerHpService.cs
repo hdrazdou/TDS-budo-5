@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TDS.Game.Player
 {
-    public class UserHpService : MonoBehaviour
+    public class PlayerHpService : MonoBehaviour
     {
         #region Variables
 

@@ -13,12 +13,24 @@ namespace TDS.Game.Player
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnSpot;
 
+        private PlayerHpService _playerHpService;
+
         #endregion
 
         #region Unity lifecycle
 
+        private void Start()
+        {
+            _playerHpService = GetComponent<PlayerHpService>();
+        }
+
         private void Update()
         {
+            if (_playerHpService.isUserDead)
+            {
+                return;
+            }
+
             if (Input.GetButtonDown("Fire1"))
             {
                 Fire();

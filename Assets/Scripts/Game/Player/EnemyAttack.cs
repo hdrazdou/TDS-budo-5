@@ -18,7 +18,7 @@ namespace TDS.Game.Player
         [Header("Settings")]
         [SerializeField] private float _attackDelay = 2;
 
-        private UserHpService _userHpService;
+        private PlayerHpService _playerHpService;
         private Vector3 _playerPosition;
         private Transform _playerTransform;
 
@@ -28,7 +28,7 @@ namespace TDS.Game.Player
 
         private void Start()
         {
-            _userHpService = FindObjectOfType<UserHpService>();
+            _playerHpService = FindObjectOfType<PlayerHpService>();
             enemyHpService = FindObjectOfType<EnemyHpService>();
 
             FindPlayer();
@@ -46,7 +46,7 @@ namespace TDS.Game.Player
 
         private IEnumerator Attack()
         {
-            while (!_userHpService.isUserDead)
+            while (!_playerHpService.isUserDead)
             {
                 yield return new WaitForSeconds(_attackDelay);
                 Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
