@@ -12,23 +12,13 @@ namespace TDS.Game.Player
         [Header("Settings")]
         [SerializeField] private float _speed = 5f;
 
-        private PlayerHpService _playerHpService;
-
         #endregion
 
         #region Unity lifecycle
 
-        private void Start()
-        {
-            _playerHpService = GetComponent<PlayerHpService>();
-        }
-
         private void Update()
         {
-            if (_playerHpService.isUserDead)
-            {
-                return;
-            }
+            
 
             Rotate();
             Move();

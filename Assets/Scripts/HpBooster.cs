@@ -9,7 +9,6 @@ namespace TDS
         #region Variables
 
         [SerializeField] private int _hp;
-        [SerializeField] private LayerMask _layerMask;
 
         #endregion
 
@@ -19,14 +18,10 @@ namespace TDS
         {
             Debug.Log("HpBooster OnTriggerEnter2D");
 
-            if ((_layerMask.value & (1 << other.gameObject.layer)) != 0)
+            if (other.TryGetComponent(out PlayerHp playerHp))
             {
-                PlayerHpService playerHpService;
-                if (other.TryGetComponent(out playerHpService))
-                {
-                    playerHpService.Hp += _hp;
-                    Destroy(gameObject);
-                }
+                playerHp.Hp += _hp;
+                Destroy(gameObject);
             }
         }
 

@@ -35,7 +35,7 @@ Transform:
   - {fileID: 2347443935999816166}
   - {fileID: 1584885164056206975}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &424869694680605967
 MonoBehaviour:
@@ -51,7 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 2864093266970409649, guid: 11c6cc1b4827449df974ba1a1f107a36, type: 3}
   _bulletSpawnSpot: {fileID: 1584885164056206975}
-  enemyHpService: {fileID: 0}
+  enemyHp: {fileID: 3723616080003912597}
+  _animation: {fileID: 5738159183776695912}
   _attackDelay: 2
 --- !u!114 &3723616080003912597
 MonoBehaviour:
@@ -69,6 +70,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 256
+  _animation: {fileID: 5738159183776695912}
 --- !u!114 &5738159183776695912
 MonoBehaviour:
   m_ObjectHideFlags: 0

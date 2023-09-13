@@ -13,7 +13,7 @@ namespace TDS.Game.Player
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnSpot;
 
-        private PlayerHpService _playerHpService;
+        private PlayerHp _playerHp;
 
         #endregion
 
@@ -21,16 +21,11 @@ namespace TDS.Game.Player
 
         private void Start()
         {
-            _playerHpService = GetComponent<PlayerHpService>();
+            _playerHp = GetComponent<PlayerHp>();
         }
 
         private void Update()
         {
-            if (_playerHpService.isUserDead)
-            {
-                return;
-            }
-
             if (Input.GetButtonDown("Fire1"))
             {
                 Fire();

@@ -8,9 +8,18 @@ namespace TDS.Game.Services
     {
         #region Public methods
 
-        public IEnumerator ReloadScene()
+        public void ReloadScene(int delay)
         {
-            yield return new WaitForSeconds(2f);
+            StartCoroutine(ReloadSceneInternal(delay));
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private IEnumerator ReloadSceneInternal(int delay)
+        {
+            yield return new WaitForSeconds(delay);
 
             Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currentScene.name);

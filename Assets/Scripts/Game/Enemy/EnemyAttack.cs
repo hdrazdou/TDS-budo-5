@@ -8,19 +8,16 @@ namespace TDS.Game.Enemy
     {
         #region Variables
 
-        // [Header("Settings")]
-        // [SerializeField] private EnemyAnimation _animation;
-
         [Header("Components")]
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnSpot;
-        [SerializeField] private EnemyHpService _enemyHpService;
+        [SerializeField] private EnemyHp enemyHp;
+        [SerializeField] private EnemyAnimation _animation;
 
         [Header("Settings")]
         [SerializeField] private float _attackDelay = 2;
 
-        private PlayerHpService _playerHpService;
-        private Vector3 _playerPosition;
+        private PlayerDeath _playerDeath;
         private Transform _playerTransform;
 
         #endregion
@@ -29,15 +26,14 @@ namespace TDS.Game.Enemy
 
         private void Start()
         {
-            _enemyHpService = GetComponent<EnemyHpService>();
-
             FindPlayer();
-            StartCoroutine(Attack());
+            Rotate();
+            StartCoroutine(AttackCycle());
         }
 
         private void Update()
         {
-            if (_enemyHpService.isEnemyDead)
+            if (enemyHp.isEnemyDead)
             {
                 return;
             }
@@ -49,28 +45,30 @@ namespace TDS.Game.Enemy
 
         #region Private methods
 
-        private IEnumerator Attack()
+        private void Attack()
         {
-            while (!_playerHpService.isUserDead && !_enemyHpService.isEnemyDead)
+            Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
+            _animation.PlayAttack(true);
+        }
+
+        private IEnumerator AttackCycle()
+        {
+            while (!_playerDeath.IsUserDead && !enemyHp.isEnemyDead)
             {
                 yield return new WaitForSeconds(_attackDelay);
-                Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
+                Attack();
             }
         }
 
         private void FindPlayer()
         {
-            _playerHpService = FindObjectOfType<PlayerHpService>();
-            _playerTransform = _playerHpService.transform;
+            _playerDeath = FindObjectOfType<PlayerDeath>();
+            _playerTransform = _playerDeath.transform;
         }
 
         private void Rotate()
         {
-            Vector3 playerPosition = _playerTransform.position;
-            playerPosition.z = 0;
-
-            Vector3 direction = playerPosition - transform.position;
-            transform.up = direction;
+            transform.up = _playerTransform.position - transform.position;
         }
 
         #endregion

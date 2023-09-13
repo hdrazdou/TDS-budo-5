@@ -1,24 +1,25 @@
 using System;
 using UnityEngine;
 
-namespace TDS.Game.Enemy
+namespace TDS.Game.Player
 {
-    public class EnemyHpService : MonoBehaviour
+    public class PlayerHp : MonoBehaviour
     {
         #region Variables
 
         [Header("Settings")]
-        [SerializeField] private int _initHp;
         [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private int _initHp = 3;
+        [SerializeField] private int _maxHp = 10;
 
-        private int _hp;
-        private bool _isEnemyDead;
+        [Header("Components")]
+        private int _hp = 3;
 
         #endregion
 
         #region Events
 
-        public event Action OnEnemyDied;
+        public event Action<int> OnChanged;
 
         #endregion
 
@@ -29,25 +30,13 @@ namespace TDS.Game.Enemy
             get => _hp;
             set
             {
-                _hp = value;
+                int newValue = Math.Clamp(value, 0, _maxHp);
+                bool needNotify = _hp != newValue;
+                _hp = newValue;
 
-                if (_hp <= 0)
+                if (needNotify)
                 {
-                    isEnemyDead = true;
-                }
-            }
-        }
-
-        public bool isEnemyDead
-        {
-            get => _isEnemyDead;
-            set
-            {
-                _isEnemyDead = value;
-
-                if (_isEnemyDead)
-                {
-                    OnEnemyDied?.Invoke();
+                    OnChanged?.Invoke(_hp);
                 }
             }
         }
@@ -63,10 +52,7 @@ namespace TDS.Game.Enemy
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if ((_layerMask.value & (1 << other.gameObject.layer)) != 0)
-            {
-                Hp--;
-            }
+            Hp--;
         }
 
         #endregion
@@ -76,7 +62,6 @@ namespace TDS.Game.Enemy
         private void SetInitValues()
         {
             Hp = _initHp;
-            isEnemyDead = false;
         }
 
         #endregion

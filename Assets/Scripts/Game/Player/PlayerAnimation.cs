@@ -12,23 +12,6 @@ namespace TDS.Game.Player
 
         [SerializeField] private Animator _animator;
 
-        private PlayerHpService _playerHpService;
-
-        #endregion
-
-        #region Unity lifecycle
-
-        private void Start()
-        {
-            _playerHpService = FindObjectOfType<PlayerHpService>();
-            _playerHpService.OnUserDied += PlayDeath;
-        }
-
-        private void OnDestroy()
-        {
-            _playerHpService.OnUserDied -= PlayDeath;
-        }
-
         #endregion
 
         #region Public methods
