@@ -18,8 +18,6 @@ namespace TDS.Game.Player
 
         private void Update()
         {
-            
-
             Rotate();
             Move();
         }

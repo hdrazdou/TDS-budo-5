@@ -6,18 +6,19 @@ namespace TDS.Game.Enemy
     {
         #region Variables
 
-        private static readonly int Death = Animator.StringToHash("Death");
-        private static readonly int IsUserAlive = Animator.StringToHash("IsUserAlive");
+        private static readonly int Attack = Animator.StringToHash("Attack");
 
+        private static readonly int Death = Animator.StringToHash("Death");
         [SerializeField] private Animator _animator;
 
         #endregion
 
         #region Public methods
 
-        public void PlayAttack(bool isUserAlive)
+        public void PlayAttack()
         {
-            _animator.SetBool(IsUserAlive, isUserAlive);
+            _animator.SetTrigger(Attack);
+            Debug.Log("EnemyAnimation PlayAttack");
         }
 
         public void PlayDeath()

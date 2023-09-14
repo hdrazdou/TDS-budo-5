@@ -48,15 +48,17 @@ namespace TDS.Game.Enemy
         private void Attack()
         {
             Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
-            _animation.PlayAttack(true);
+            _animation.PlayAttack();
         }
 
         private IEnumerator AttackCycle()
         {
+            yield return new WaitForSeconds(_attackDelay);
+
             while (!_playerDeath.IsUserDead && !enemyHp.isEnemyDead)
             {
-                yield return new WaitForSeconds(_attackDelay);
                 Attack();
+                yield return new WaitForSeconds(_attackDelay);
             }
         }
 

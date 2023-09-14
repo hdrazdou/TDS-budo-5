@@ -19,7 +19,6 @@ namespace TDS
         private void Start()
         {
             _rb.velocity = transform.up * _speed;
-            Debug.Log("Bullet Start");
             this.StartTimer(_lifeTime, () => Destroy(gameObject));
         }
 
