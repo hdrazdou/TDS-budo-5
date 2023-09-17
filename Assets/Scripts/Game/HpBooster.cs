@@ -1,7 +1,7 @@
 using TDS.Game.Player;
 using UnityEngine;
 
-namespace TDS
+namespace TDS.Game
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class HpBooster : MonoBehaviour

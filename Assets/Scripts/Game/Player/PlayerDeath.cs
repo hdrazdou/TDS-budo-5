@@ -8,7 +8,7 @@ namespace TDS.Game.Player
         #region Variables
 
         [Header("Components")]
-        [SerializeField] private PlayerHp _playerHp;
+        [SerializeField] private UnitHp _hp;
         [SerializeField] private PlayerAnimation _animation;
         [SerializeField] private Collider2D _collider2D;
         [SerializeField] private PlayerMovement _playerMovement;
@@ -47,12 +47,12 @@ namespace TDS.Game.Player
 
         private void OnEnable()
         {
-            _playerHp.OnChanged += OnHpChanged;
+            _hp.OnChanged += OnHpChanged;
         }
 
         private void OnDisable()
         {
-            _playerHp.OnChanged -= OnHpChanged;
+            _hp.OnChanged -= OnHpChanged;
         }
 
         #endregion

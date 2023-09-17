@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4098144307094393277}
   - component: {fileID: 6173513975081698739}
   - component: {fileID: -416665407423611201}
-  m_Layer: 9
-  m_Name: ZombieBullet
+  m_Layer: 12
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   _rb: {fileID: 6173513975081698739}
   _speed: 25
   _lifeTime: 2
+  _damage: 1
 --- !u!50 &6173513975081698739
 Rigidbody2D:
   serializedVersion: 4
@@ -122,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2729836920279128169}
   - component: {fileID: 1144442701325249699}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
