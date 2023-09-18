@@ -7,7 +7,7 @@ namespace TDS.Game.Player
         #region Variables
 
         private static readonly int Explode = Animator.StringToHash("Explode");
-        
+
         [SerializeField] private Animator _animator;
 
         #endregion

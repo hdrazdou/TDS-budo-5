@@ -30,7 +30,7 @@ namespace TDS.Game.Enemy
             base.OnPerformAttack();
 
             Vector3 direction = _playerTransform.position - transform.position;
-            Instantiate(_bulletPrefab, _bulletSpawnSpot.position, Quaternion.Euler(direction));
+            Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
         }
 
         #endregion

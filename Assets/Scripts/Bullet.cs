@@ -8,12 +8,13 @@ namespace TDS
     {
         #region Variables
 
-        [SerializeField] private Rigidbody2D _rb;
+        [Header("Settings")]
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _lifeTime = 2f;
         [SerializeField] private int _damage = 1;
 
-        private float _deathTime;
+        [Header("Components")]
+        [SerializeField] private Rigidbody2D _rb;
 
         #endregion
 

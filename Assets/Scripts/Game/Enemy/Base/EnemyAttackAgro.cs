@@ -43,7 +43,7 @@ namespace TDS.Game.Enemy
         private void OnObserverExit(Collider2D other)
         {
             SetActiveAttack(false);
-            
+
             if (_enemyMovement != null)
             {
                 _enemyMovement.Activate();
