@@ -1,4 +1,3 @@
-using TDS.Game.Player;
 using UnityEngine;
 
 namespace TDS.Game
@@ -16,11 +15,9 @@ namespace TDS.Game
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("HpBooster OnTriggerEnter2D");
-
-            if (other.TryGetComponent(out PlayerHp playerHp))
+            if (other.TryGetComponent(out UnitHp unitHp))
             {
-                playerHp.Hp += _hp;
+                unitHp.Change(_hp);
                 Destroy(gameObject);
             }
         }

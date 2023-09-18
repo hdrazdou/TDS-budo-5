@@ -13,16 +13,9 @@ namespace TDS.Game.Player
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnSpot;
 
-        private PlayerHp _playerHp;
-
         #endregion
 
         #region Unity lifecycle
-
-        private void Start()
-        {
-            _playerHp = GetComponent<PlayerHp>();
-        }
 
         private void Update()
         {

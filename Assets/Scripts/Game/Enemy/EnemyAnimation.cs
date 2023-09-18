@@ -18,7 +18,6 @@ namespace TDS.Game.Enemy
         public void PlayAttack()
         {
             _animator.SetTrigger(Attack);
-            Debug.Log("EnemyAnimation PlayAttack");
         }
 
         public void PlayDeath()

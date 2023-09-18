@@ -9,9 +9,16 @@ namespace TDS.Game.Enemy
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private EnemyMovement _enemyMovement;
 
+        private Vector3 _spawnSpot;
+
         #endregion
 
         #region Unity lifecycle
+
+        private void Awake()
+        {
+            _spawnSpot = transform.position;
+        }
 
         private void OnEnable()
         {
@@ -37,6 +44,15 @@ namespace TDS.Game.Enemy
         private void OnObserverExit(Collider2D other)
         {
             SetTarget(null);
+            ReturnToSpawnSpot();
+        }
+
+        private void ReturnToSpawnSpot()
+        {
+            if (_enemyMovement != null)
+            {
+                _enemyMovement.GoToPoint(_spawnSpot);
+            }
         }
 
         private void SetTarget(Transform otherTransform)

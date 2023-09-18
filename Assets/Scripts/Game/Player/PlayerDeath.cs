@@ -35,7 +35,6 @@ namespace TDS.Game.Player
 
                 if (_isUserDead)
                 {
-                    Debug.Log($"PlayerDeath _isUserDead {_isUserDead}");
                     OnHappened?.Invoke();
                 }
             }

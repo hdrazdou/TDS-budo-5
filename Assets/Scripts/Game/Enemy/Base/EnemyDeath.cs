@@ -8,6 +8,12 @@ namespace TDS.Game.Enemy
         #region Variables
 
         [SerializeField] private UnitHp _hp;
+        [SerializeField] private EnemyAnimation _animation;
+        [SerializeField] private Collider2D _collider2D;
+        [SerializeField] private EnemyAttack _enemyAttack;
+        [SerializeField] private EnemyMovement _enemyMovement;
+        [SerializeField] private EnemyMovementAgro _enemyMovementAgro;
+        [SerializeField] private EnemyAttackAgro _enemyAttacktAgro;
 
         #endregion
 
@@ -27,7 +33,8 @@ namespace TDS.Game.Enemy
 
         private void OnEnable()
         {
-            OnHpChanged(_hp.Current);
+            // OnHpChanged(_hp.Current);
+            // Debug.Log($"EnemyDeath OnEnable _hp.Current = {_hp.Current}");
             _hp.OnChanged += OnHpChanged;
         }
 
@@ -40,6 +47,19 @@ namespace TDS.Game.Enemy
 
         #region Private methods
 
+        private void Die()
+        {
+            IsDead = true;
+            OnHappened?.Invoke();
+            _animation.PlayDeath();
+
+            _collider2D.enabled = false;
+            _enemyAttack.enabled = false;
+            _enemyMovement.enabled = false;
+            _enemyMovementAgro.enabled = false;
+            _enemyAttacktAgro.enabled = false;
+        }
+
         private void OnHpChanged(int currentHp)
         {
             if (IsDead || currentHp > 0)
@@ -47,8 +67,7 @@ namespace TDS.Game.Enemy
                 return;
             }
 
-            IsDead = true;
-            OnHappened?.Invoke();
+            Die();
         }
 
         #endregion
