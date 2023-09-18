@@ -11,7 +11,7 @@ namespace TDS.Game.Enemy
         [SerializeField] private bool _isPatroling;
         [SerializeField] private Vector3 _firstPoint;
         [SerializeField] private Vector3 _secondPoint;
-        
+
         [Header("Components")]
         [SerializeField] private EnemyMovement _enemyMovement;
 
@@ -29,14 +29,6 @@ namespace TDS.Game.Enemy
             }
         }
 
-        // private void Update()
-        // {
-        //     if (!_enemyMovement.isMovingToPoint)
-        //     {
-        //         _enemyMovement.GoToPoint(_firstPoint);
-        //     }
-        // }
-
         #endregion
 
         #region Public methods
@@ -47,5 +39,13 @@ namespace TDS.Game.Enemy
         }
 
         #endregion
+
+        // private void Update()
+        // {
+        //     if (!_enemyMovement.isMovingToPoint)
+        //     {
+        //         _enemyMovement.GoToPoint(_firstPoint);
+        //     }
+        // }
     }
 }

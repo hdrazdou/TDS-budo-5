@@ -33,7 +33,7 @@ namespace TDS.Game.Enemy
 
         private void OnEnable()
         {
-            // OnHpChanged(_hp.Current);
+            // OnHpChanged(_hp.Current); - сетает ноль и зомби сразу умирают
             // Debug.Log($"EnemyDeath OnEnable _hp.Current = {_hp.Current}");
             _hp.OnChanged += OnHpChanged;
         }
