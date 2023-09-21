@@ -9,6 +9,7 @@ namespace TDS.Game.Enemy
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private EnemyAttack _enemyAttack;
         [SerializeField] private EnemyMovement _enemyMovement;
+        [SerializeField] private CircleCollider2D _attackAgroCollider;
 
         #endregion
 
@@ -24,6 +25,12 @@ namespace TDS.Game.Enemy
         {
             _triggerObserver.OnEnter -= OnObserverEnter;
             _triggerObserver.OnExit -= OnObserverExit;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _attackAgroCollider.radius);
         }
 
         #endregion

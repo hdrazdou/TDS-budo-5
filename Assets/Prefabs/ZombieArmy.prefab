@@ -86,6 +86,7 @@ MonoBehaviour:
   _triggerObserver: {fileID: 8280485770808877820}
   _enemyAttack: {fileID: 4408634751815400584}
   _enemyMovement: {fileID: 6662533272167954133}
+  _attackAgroCollider: {fileID: 5203364368956172436}
 --- !u!114 &5795368466265319469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerObserver: {fileID: 3543223347372008351}
   _enemyMovement: {fileID: 6662533272167954133}
+  _movementAgroCollider: {fileID: 5805058282123084356}
 --- !u!50 &4020588887180590997
 Rigidbody2D:
   serializedVersion: 4
