@@ -1,4 +1,3 @@
-using TDS.Game.Player;
 using UnityEngine;
 
 namespace TDS.Game
@@ -8,11 +7,13 @@ namespace TDS.Game
     {
         #region Variables
 
-        [SerializeField] private ExplosionAnimation _animation;
+        private static readonly int Explosion = Animator.StringToHash("Explosion");
+
         [SerializeField] private float _explosionRadius;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private int _damage;
         [SerializeField] private Collider2D _tntCollider;
+        [SerializeField] private Animator _explosionAnimator;
 
         #endregion
 
@@ -31,11 +32,20 @@ namespace TDS.Game
 
         #endregion
 
+        #region Public methods
+
+        public void PlayExplosion()
+        {
+            _explosionAnimator.SetTrigger(Explosion);
+        }
+
+        #endregion
+
         #region Private methods
 
         private void Explode()
         {
-            _animation.PlayExplosion();
+            PlayExplosion();
 
             Vector3 center = transform.position;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(center, _explosionRadius, _layerMask);

@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 7408111602144769935}
   - component: {fileID: 1582543503769287380}
   - component: {fileID: 4823748360513314986}
+  - component: {fileID: 439965654847744385}
   - component: {fileID: 1055816924143135787}
   - component: {fileID: 3297241198185905339}
-  - component: {fileID: 439965654847744385}
   m_Layer: 7
   m_Name: ZombieCop
   m_TagString: Untagged
@@ -43,7 +43,7 @@ Transform:
   - {fileID: 8614818755933589825}
   - {fileID: 1160144470324631073}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3087021717653814382
 MonoBehaviour:
@@ -59,7 +59,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackDelay: 2
   _enemyAnimation: {fileID: 7912273225092588016}
+  _enemyAttackAgro: {fileID: 4297211642640195975}
   _damage: 1
+  detectRadius: 2
+  _playerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &7912273225092588016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +160,20 @@ MonoBehaviour:
   _movementAgroCollider: {fileID: 3268511022194425284}
   _defaultBehaviour: {fileID: 439965654847744385}
   _radius: 5
+--- !u!114 &439965654847744385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650744732241422629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345e9320388045bbad4e0b8229935d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movement: {fileID: 1582543503769287380}
+  _needReturnToStartPosition: 1
 --- !u!50 &1055816924143135787
 Rigidbody2D:
   serializedVersion: 4
@@ -217,20 +236,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.73
---- !u!114 &439965654847744385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650744732241422629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 345e9320388045bbad4e0b8229935d14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movement: {fileID: 1582543503769287380}
-  _needReturnToStartPosition: 1
 --- !u!1 &1157463232848408546
 GameObject:
   m_ObjectHideFlags: 0

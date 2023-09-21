@@ -25,7 +25,7 @@ namespace TDS.Game.Enemy
         {
             _animator.SetTrigger(Death);
         }
-        
+
         public void SetSpeed(float value)
         {
             _animator.SetFloat(Speed, value);

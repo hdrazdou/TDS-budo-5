@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5874761040848192346}
   - component: {fileID: 7334997875759767166}
   - component: {fileID: 6649612732498636347}
-  - component: {fileID: 1121073503510142770}
   - component: {fileID: 7321827109313999499}
   m_Layer: 13
   m_Name: TNT
@@ -98,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 3812621002219499094}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 19294d913e53b48db800303ba66bfa1b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 591f8293a90cb43c68e06f35fee3c317, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -121,26 +120,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09ff3b97d3f43f792365b99d86c58f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animation: {fileID: 1121073503510142770}
   _explosionRadius: 2.28
   _layerMask:
     serializedVersion: 2
     m_Bits: 8384
   _damage: 53
   _tntCollider: {fileID: 7321827109313999499}
---- !u!114 &1121073503510142770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3812621002219499094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a1cbd71e3a94a9d8f3076538722bfe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 7334997875759767166}
+  _explosionAnimator: {fileID: 7334997875759767166}
 --- !u!58 &7321827109313999499
 CircleCollider2D:
   m_ObjectHideFlags: 0

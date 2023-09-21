@@ -31,10 +31,13 @@ namespace TDS.Game.Enemy
 
         #region Unity lifecycle
 
+        private void Start()
+        {
+            OnHpChanged(_hp.Current);
+        }
+
         private void OnEnable()
         {
-            // OnHpChanged(_hp.Current); - сетает ноль и зомби сразу умирают
-            // Debug.Log($"EnemyDeath OnEnable _hp.Current = {_hp.Current}");
             _hp.OnChanged += OnHpChanged;
         }
 

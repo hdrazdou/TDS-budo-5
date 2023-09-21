@@ -7,19 +7,15 @@ namespace TDS.Game.Enemy
         #region Variables
 
         [Header(nameof(EnemyCloseAttack))]
+        [Header("Components")]
         [SerializeField] private EnemyAnimation _enemyAnimation;
+
+        [Header("Settings")]
         [SerializeField] private int _damage = 1;
+        [SerializeField] private float detectRadius;
+        [SerializeField] private LayerMask _playerMask;
 
         private Transform _playerTransform;
-
-        #endregion
-
-        #region Unity lifecycle
-
-        private void Start()
-        {
-            _playerTransform = GameObject.FindWithTag(Tags.Player).transform;
-        }
 
         #endregion
 
@@ -30,7 +26,10 @@ namespace TDS.Game.Enemy
             base.OnPerformAttack();
 
             _enemyAnimation.PlayAttack();
-            _playerTransform.TryGetComponent(out UnitHp unitHp);
+
+            Vector3 center = transform.position;
+            Collider2D collider = Physics2D.OverlapCircle(center, detectRadius, _playerMask);
+            collider.TryGetComponent(out UnitHp unitHp);
             unitHp.Change(-_damage);
         }
 
