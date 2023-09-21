@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 9090605915212162463}
   - component: {fileID: 4020588887180590997}
   - component: {fileID: 1792262156547476347}
+  - component: {fileID: 388966768045953027}
   m_Layer: 7
   m_Name: ZombieArmy
   m_TagString: Untagged
@@ -87,6 +88,7 @@ MonoBehaviour:
   _enemyAttack: {fileID: 4408634751815400584}
   _enemyMovement: {fileID: 6662533272167954133}
   _attackAgroCollider: {fileID: 5203364368956172436}
+  _radius: 1.97
 --- !u!114 &5795368466265319469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,7 @@ MonoBehaviour:
   _attackDelay: 2
   _bulletPrefab: {fileID: 4098144307094393277, guid: 26b04a47f85f0496a8f381229d86eab0, type: 3}
   _bulletSpawnSpot: {fileID: 1584885164056206975}
+  _enemyAnimation: {fileID: 5738159183776695912}
 --- !u!114 &6662533272167954133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 4020588887180590997}
+  _animation: {fileID: 5738159183776695912}
   _speed: 3
 --- !u!114 &9090605915212162463
 MonoBehaviour:
@@ -150,6 +154,8 @@ MonoBehaviour:
   _triggerObserver: {fileID: 3543223347372008351}
   _enemyMovement: {fileID: 6662533272167954133}
   _movementAgroCollider: {fileID: 5805058282123084356}
+  _defaultBehaviour: {fileID: 388966768045953027}
+  _radius: 5
 --- !u!50 &4020588887180590997
 Rigidbody2D:
   serializedVersion: 4
@@ -212,6 +218,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.73
+--- !u!114 &388966768045953027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602606175603753381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345e9320388045bbad4e0b8229935d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movement: {fileID: 6662533272167954133}
+  _needReturnToStartPosition: 1
 --- !u!1 &2640195578567265923
 GameObject:
   m_ObjectHideFlags: 0

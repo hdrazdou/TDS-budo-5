@@ -43,7 +43,6 @@ namespace TDS.Game
         private void Awake()
         {
             Current = _initHp;
-            Debug.Log($"UnitHp Awake Current = {Current}");
         }
 
         #endregion

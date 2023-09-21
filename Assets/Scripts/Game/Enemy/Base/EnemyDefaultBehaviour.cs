@@ -4,7 +4,7 @@ namespace TDS.Game.Enemy
     {
         #region Unity lifecycle
 
-        private void Awake()
+        protected virtual void Awake()
         {
             Activate();
         }

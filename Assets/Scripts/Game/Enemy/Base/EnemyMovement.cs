@@ -6,8 +6,6 @@ namespace TDS.Game.Enemy
     {
         #region Public methods
 
-        public abstract void GoToPoint(Vector3 point);
-
         public abstract void SetTarget(Transform target);
 
         #endregion

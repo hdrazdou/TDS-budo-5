@@ -9,6 +9,7 @@ namespace TDS.Game.Enemy
         [Header(nameof(EnemyRangeAttack))]
         [SerializeField] private Bullet _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnSpot;
+        [SerializeField] private EnemyAnimation _enemyAnimation;
 
         private Transform _playerTransform;
 
@@ -28,6 +29,8 @@ namespace TDS.Game.Enemy
         protected override void OnPerformAttack()
         {
             base.OnPerformAttack();
+
+            _enemyAnimation.PlayAttack();
 
             Vector3 direction = _playerTransform.position - transform.position;
             Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);

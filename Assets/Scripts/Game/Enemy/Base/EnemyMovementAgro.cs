@@ -6,9 +6,14 @@ namespace TDS.Game.Enemy
     {
         #region Variables
 
+        [Header("Components")]
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private EnemyMovement _enemyMovement;
         [SerializeField] private CircleCollider2D _movementAgroCollider;
+        [SerializeField] private EnemyDefaultBehaviour _defaultBehaviour;
+
+        [Header("Settings")]
+        [SerializeField] private float _radius;
 
         private Vector3 _spawnSpot;
 
@@ -19,6 +24,11 @@ namespace TDS.Game.Enemy
         private void Awake()
         {
             _spawnSpot = transform.position;
+        }
+
+        private void Start()
+        {
+            _movementAgroCollider.radius = _radius;
         }
 
         private void OnEnable()
@@ -51,15 +61,6 @@ namespace TDS.Game.Enemy
         private void OnObserverExit(Collider2D other)
         {
             SetTarget(null);
-            ReturnToSpawnSpot();
-        }
-
-        private void ReturnToSpawnSpot()
-        {
-            if (_enemyMovement != null)
-            {
-                _enemyMovement.GoToPoint(_spawnSpot);
-            }
         }
 
         private void SetTarget(Transform otherTransform)
@@ -67,6 +68,18 @@ namespace TDS.Game.Enemy
             if (_enemyMovement != null)
             {
                 _enemyMovement.SetTarget(otherTransform);
+            }
+
+            if (_defaultBehaviour != null)
+            {
+                if (otherTransform != null)
+                {
+                    _defaultBehaviour.Deactivate();
+                }
+                else
+                {
+                    _defaultBehaviour.Activate();
+                }
             }
         }
 

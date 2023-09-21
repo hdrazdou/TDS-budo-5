@@ -9,6 +9,7 @@ namespace TDS.Game.Enemy
         private static readonly int Attack = Animator.StringToHash("Attack");
 
         private static readonly int Death = Animator.StringToHash("Death");
+        private static readonly int Speed = Animator.StringToHash("Speed");
         [SerializeField] private Animator _animator;
 
         #endregion
@@ -23,6 +24,11 @@ namespace TDS.Game.Enemy
         public void PlayDeath()
         {
             _animator.SetTrigger(Death);
+        }
+        
+        public void SetSpeed(float value)
+        {
+            _animator.SetFloat(Speed, value);
         }
 
         #endregion

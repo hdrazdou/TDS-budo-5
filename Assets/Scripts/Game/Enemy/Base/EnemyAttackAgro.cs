@@ -10,10 +10,16 @@ namespace TDS.Game.Enemy
         [SerializeField] private EnemyAttack _enemyAttack;
         [SerializeField] private EnemyMovement _enemyMovement;
         [SerializeField] private CircleCollider2D _attackAgroCollider;
+        [SerializeField] private float _radius;
 
         #endregion
 
         #region Unity lifecycle
+
+        private void Start()
+        {
+            _attackAgroCollider.radius = _radius;
+        }
 
         private void OnEnable()
         {
