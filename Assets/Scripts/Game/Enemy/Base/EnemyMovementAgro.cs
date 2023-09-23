@@ -10,7 +10,7 @@ namespace TDS.Game.Enemy
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private EnemyMovement _enemyMovement;
         [SerializeField] private CircleCollider2D _movementAgroCollider;
-        [SerializeField] private EnemyDefaultBehaviour _defaultBehaviour;
+        [SerializeField] private EnemyIdle idle;
 
         [Header("Settings")]
         [SerializeField] private float _radius;
@@ -70,15 +70,15 @@ namespace TDS.Game.Enemy
                 _enemyMovement.SetTarget(otherTransform);
             }
 
-            if (_defaultBehaviour != null)
+            if (idle != null)
             {
-                if (otherTransform != null)
+                if (otherTransform == null)
                 {
-                    _defaultBehaviour.Deactivate();
+                    idle.Activate();
                 }
                 else
                 {
-                    _defaultBehaviour.Activate();
+                    idle.Deactivate();
                 }
             }
         }

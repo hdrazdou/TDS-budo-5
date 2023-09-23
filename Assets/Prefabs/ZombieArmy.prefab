@@ -43,7 +43,7 @@ Transform:
   - {fileID: 5950580749056415673}
   - {fileID: 2858837242551357550}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5738159183776695912
 MonoBehaviour:
@@ -154,7 +154,7 @@ MonoBehaviour:
   _triggerObserver: {fileID: 3543223347372008351}
   _enemyMovement: {fileID: 6662533272167954133}
   _movementAgroCollider: {fileID: 5805058282123084356}
-  _defaultBehaviour: {fileID: 388966768045953027}
+  idle: {fileID: 388966768045953027}
   _radius: 5
 --- !u!114 &388966768045953027
 MonoBehaviour:
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345e9320388045bbad4e0b8229935d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movement: {fileID: 6662533272167954133}
+  _enemyMovement: {fileID: 6662533272167954133}
   _needReturnToStartPosition: 1
 --- !u!50 &4020588887180590997
 Rigidbody2D:
