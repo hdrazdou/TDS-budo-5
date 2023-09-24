@@ -50,23 +50,11 @@ namespace TDS.Game.Enemy
 
         #region Private methods
 
-        private void CheckDistance()
-        {
-            float distanceToSpawnSpot = Vector3.Distance(transform.position, _target.position);
-
-            if (distanceToSpawnSpot < 1f)
-            {
-                SetTarget(null);
-            }
-        }
-
         private void MoveToTarget()
         {
             Vector3 direction = (_target.position - transform.position).normalized;
             _rb.velocity = direction * _speed;
             transform.up = direction;
-
-            CheckDistance();
 
             _animation.SetSpeed(_rb.velocity.magnitude);
         }

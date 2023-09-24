@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7408111602144769935}
   - component: {fileID: 1582543503769287380}
   - component: {fileID: 4823748360513314986}
-  - component: {fileID: 439965654847744385}
+  - component: {fileID: 8727161604330958721}
   - component: {fileID: 1055816924143135787}
   - component: {fileID: 3297241198185905339}
   m_Layer: 7
@@ -157,9 +157,9 @@ MonoBehaviour:
   _triggerObserver: {fileID: 3040635034951502010}
   _enemyMovement: {fileID: 1582543503769287380}
   _movementAgroCollider: {fileID: 3268511022194425284}
-  idle: {fileID: 439965654847744385}
+  idle: {fileID: 8727161604330958721}
   _radius: 5
---- !u!114 &439965654847744385
+--- !u!114 &8727161604330958721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,11 +168,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 650744732241422629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 345e9320388045bbad4e0b8229935d14, type: 3}
+  m_Script: {fileID: 11500000, guid: c66ac85c995a44c299726206d4909b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyMovement: {fileID: 1582543503769287380}
-  _needReturnToStartPosition: 1
+  _movement: {fileID: 1582543503769287380}
+  _path: {fileID: 0}
 --- !u!50 &1055816924143135787
 Rigidbody2D:
   serializedVersion: 4

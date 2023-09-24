@@ -21,13 +21,13 @@ namespace TDS.Game.Enemy
             _startPositionTransform.position = transform.position;
         }
 
-        // private void Update()
-        // {
-        //     if (Vector3.Distance(_startPositionTransform.position, transform.position) <= 0.3f)
-        //     {
-        //         _enemyMovement.SetTarget(null);
-        //     }
-        // }
+        private void Update()
+        {
+            if (Vector3.Distance(_startPositionTransform.position, transform.position) <= 0.3f)
+            {
+                _enemyMovement.SetTarget(null);
+            }
+        }
 
         private void OnEnable()
         {
