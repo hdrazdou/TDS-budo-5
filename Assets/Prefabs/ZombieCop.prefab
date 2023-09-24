@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackDelay: 2
+  _animation: {fileID: 7912273225092588016}
   _enemyAnimation: {fileID: 7912273225092588016}
   _damage: 1
   detectRadius: 2
@@ -139,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e224068ad141519e9854644e9cfc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 1055816924143135787}
   _animation: {fileID: 7912273225092588016}
+  _rb: {fileID: 1055816924143135787}
   _speed: 3
 --- !u!114 &4823748360513314986
 MonoBehaviour:
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 1582543503769287380}
   _path: {fileID: 0}
+  _minDistance: 0.1
 --- !u!50 &1055816924143135787
 Rigidbody2D:
   serializedVersion: 4

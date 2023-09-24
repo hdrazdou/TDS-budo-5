@@ -7,9 +7,6 @@ namespace TDS.Game.Enemy
         #region Variables
 
         [Header(nameof(EnemyCloseAttack))]
-        [Header("Components")]
-        [SerializeField] private EnemyAnimation _enemyAnimation;
-
         [Header("Settings")]
         [SerializeField] private int _damage = 1;
         [SerializeField] private float detectRadius;
@@ -24,8 +21,6 @@ namespace TDS.Game.Enemy
         protected override void OnPerformAttack()
         {
             base.OnPerformAttack();
-
-            _enemyAnimation.PlayAttack();
 
             Vector3 center = transform.position;
             Collider2D collider = Physics2D.OverlapCircle(center, detectRadius, _playerMask);

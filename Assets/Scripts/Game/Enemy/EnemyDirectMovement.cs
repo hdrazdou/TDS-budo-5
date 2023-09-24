@@ -7,7 +7,6 @@ namespace TDS.Game.Enemy
         #region Variables
 
         [SerializeField] private Rigidbody2D _rb;
-        [SerializeField] private EnemyAnimation _animation;
         [SerializeField] private float _speed = 3f;
 
         private Vector3 _pointPosition;
@@ -30,6 +29,7 @@ namespace TDS.Game.Enemy
         private void OnDisable()
         {
             _rb.velocity = Vector2.zero;
+            Animation.SetSpeed(0);
         }
 
         #endregion
@@ -43,6 +43,7 @@ namespace TDS.Game.Enemy
             if (_target == null)
             {
                 _rb.velocity = Vector2.zero;
+                Animation.SetSpeed(_rb.velocity.magnitude);
             }
         }
 
@@ -56,7 +57,7 @@ namespace TDS.Game.Enemy
             _rb.velocity = direction * _speed;
             transform.up = direction;
 
-            _animation.SetSpeed(_rb.velocity.magnitude);
+            Animation.SetSpeed(_rb.velocity.magnitude);
         }
 
         #endregion

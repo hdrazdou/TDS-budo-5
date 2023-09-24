@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackDelay: 2
+  _animation: {fileID: 5738159183776695912}
   _bulletPrefab: {fileID: 4098144307094393277, guid: 26b04a47f85f0496a8f381229d86eab0, type: 3}
   _bulletSpawnSpot: {fileID: 1584885164056206975}
   _enemyAnimation: {fileID: 5738159183776695912}
@@ -136,8 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e224068ad141519e9854644e9cfc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 4020588887180590997}
   _animation: {fileID: 5738159183776695912}
+  _rb: {fileID: 4020588887180590997}
   _speed: 3
 --- !u!114 &9090605915212162463
 MonoBehaviour:

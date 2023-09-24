@@ -8,6 +8,7 @@ namespace TDS.Game.Enemy
 
         [Header(nameof(EnemyAttack))]
         [SerializeField] private float _attackDelay = 2f;
+        [SerializeField] private EnemyAnimation _animation;
 
         private bool _needAttack;
         private float _nextAttackTime;
@@ -53,7 +54,10 @@ namespace TDS.Game.Enemy
 
         #region Protected methods
 
-        protected virtual void OnPerformAttack() { }
+        protected virtual void OnPerformAttack()
+        {
+            _animation.PlayAttack();
+        }
 
         #endregion
     }
