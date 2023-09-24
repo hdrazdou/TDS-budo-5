@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace TDS.Game.Enemy
 {
@@ -9,7 +11,14 @@ namespace TDS.Game.Enemy
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Death = Animator.StringToHash("Death");
         private static readonly int Speed = Animator.StringToHash("Speed");
+
         [SerializeField] private Animator _animator;
+
+        #endregion
+
+        #region Events
+
+        public event Action OnCloseAttackHit;
 
         #endregion
 
@@ -28,6 +37,17 @@ namespace TDS.Game.Enemy
         public void SetSpeed(float value)
         {
             _animator.SetFloat(Speed, value);
+        }
+
+        #endregion
+
+        #region Private methods
+
+        [Preserve]
+        private void CloseAttackHit()
+        {
+            Debug.Log($"EnemyAnimation CloseAttackHit");
+            OnCloseAttackHit?.Invoke();
         }
 
         #endregion

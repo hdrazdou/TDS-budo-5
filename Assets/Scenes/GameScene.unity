@@ -545,6 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initHp: 3
   _maxHp: 3
+  _current: 0
 --- !u!1 &1074769298
 GameObject:
   m_ObjectHideFlags: 0

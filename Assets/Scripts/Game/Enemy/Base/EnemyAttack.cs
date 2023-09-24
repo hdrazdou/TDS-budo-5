@@ -15,6 +15,12 @@ namespace TDS.Game.Enemy
 
         #endregion
 
+        #region Properties
+
+        protected EnemyAnimation Animation => _animation;
+
+        #endregion
+
         #region Unity lifecycle
 
         private void Update()

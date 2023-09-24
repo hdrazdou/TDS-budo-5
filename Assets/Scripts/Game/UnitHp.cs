@@ -1,4 +1,5 @@
 using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace TDS.Game
@@ -9,7 +10,8 @@ namespace TDS.Game
 
         [SerializeField] private int _initHp = 3;
         [SerializeField] private int _maxHp = 3;
-        private int _current;
+        [ReadOnly]
+        [SerializeField] private int _current;
 
         #endregion
 

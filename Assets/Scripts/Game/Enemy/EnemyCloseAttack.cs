@@ -8,24 +8,53 @@ namespace TDS.Game.Enemy
 
         [Header(nameof(EnemyCloseAttack))]
         [Header("Settings")]
-        [SerializeField] private int _damage = 1;
-        [SerializeField] private float detectRadius;
-        [SerializeField] private LayerMask _playerMask;
+        [SerializeField] private Transform _hitTransform;
 
-        private Transform _playerTransform;
+        [Header("Settings")]
+        [SerializeField] private int _damage = 1;
+        [SerializeField] private float _hitRadius;
+        [SerializeField] private LayerMask _playerMask;
 
         #endregion
 
-        #region Protected methods
+        #region Unity lifecycle
 
-        protected override void OnPerformAttack()
+        private void OnEnable()
         {
-            base.OnPerformAttack();
+            Animation.OnCloseAttackHit += OnCloseAttackHit;
+        }
 
-            Vector3 center = transform.position;
-            Collider2D collider = Physics2D.OverlapCircle(center, detectRadius, _playerMask);
-            collider.TryGetComponent(out UnitHp unitHp);
-            unitHp.Change(-_damage);
+        private void OnDisable()
+        {
+            Animation.OnCloseAttackHit -= OnCloseAttackHit;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            if (_hitTransform == null)
+            {
+                return;
+            }
+
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(_hitTransform.position, _hitRadius);
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private void OnCloseAttackHit()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(_hitTransform.position, _hitRadius, _playerMask);
+
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.TryGetComponent(out UnitHp hp))
+                {
+                    hp.Change(-_damage);
+                }
+            }
         }
 
         #endregion
