@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8727161604330958721}
   - component: {fileID: 1055816924143135787}
   - component: {fileID: 3297241198185905339}
+  - component: {fileID: 5837528238844196787}
   m_Layer: 7
   m_Name: ZombieCop
   m_TagString: Untagged
@@ -78,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initHp: 3
   _maxHp: 3
+  _current: 0
 --- !u!114 &4297211642640195975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +225,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.73
+--- !u!114 &5837528238844196787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650744732241422629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f821d72c24704c6ebe67f7a51b483f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyDeath: {fileID: 7408111602144769935}
+  _hpBoosterPrefab: {fileID: 920710715197050978, guid: bd93acb488f8d484ea1d4e4fdded8408, type: 3}
+  _probability: 61
 --- !u!1 &1408669756834769345
 GameObject:
   m_ObjectHideFlags: 0
