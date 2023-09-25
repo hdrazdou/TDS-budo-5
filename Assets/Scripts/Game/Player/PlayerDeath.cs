@@ -73,7 +73,6 @@ namespace TDS.Game.Player
             if (hp <= 0 && !IsUserDead)
             {
                 Die();
-                Debug.Log($"PlayerDeath OnHpChanged Die");
             }
         }
 

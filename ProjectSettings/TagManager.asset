@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Tilemap
+    uniqueID: 45719841
+    locked: 0
   - name: Floor
     uniqueID: 3204496807
     locked: 0

@@ -46,7 +46,6 @@ namespace TDS.Game.Enemy
         [Preserve]
         private void CloseAttackHit()
         {
-            Debug.Log($"EnemyAnimation CloseAttackHit");
             OnCloseAttackHit?.Invoke();
         }
 
