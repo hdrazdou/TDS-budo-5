@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace TDS.Game
 {
-    public class BonusService : MonoBehaviour
+    public class BonusDropper : MonoBehaviour
     {
         #region Variables
 
         [SerializeField] private EnemyDeath _enemyDeath;
-        [SerializeField] private HpBooster _hpBoosterPrefab;
-        [Range(1, 101)]
+        [SerializeField] private GameObject _hpBoosterPrefab;
+        [Range(1, 100)]
         [SerializeField] private int _probability = 50;
 
         #endregion
@@ -35,7 +35,7 @@ namespace TDS.Game
         {
             int random = UnityEngine.Random.Range(1, 101);
 
-            if (_probability < random)
+            if (_probability > random)
             {
                 Instantiate(_hpBoosterPrefab, transform.position, quaternion.identity);
             }
