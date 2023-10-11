@@ -19,7 +19,7 @@ namespace TDS.Game.Enemy
 
         #region Events
 
-        public event Action OnHappened;
+        public event Action<EnemyDeath> OnHappened;
 
         #endregion
 
@@ -53,7 +53,7 @@ namespace TDS.Game.Enemy
         private void Die()
         {
             IsDead = true;
-            OnHappened?.Invoke();
+            OnHappened?.Invoke(this);
             _animation.PlayDeath();
 
             _collider2D.enabled = false;

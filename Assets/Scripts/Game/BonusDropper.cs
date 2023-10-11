@@ -31,7 +31,7 @@ namespace TDS.Game
 
         #region Private methods
 
-        private void CreateBonus()
+        private void CreateBonus(EnemyDeath enemyDeath)
         {
             int random = UnityEngine.Random.Range(1, 101);
 

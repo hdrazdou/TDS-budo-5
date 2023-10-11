@@ -43,7 +43,7 @@ Transform:
   - {fileID: 1160144470324631073}
   - {fileID: 1677166813362993664}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3087021717653814382
 MonoBehaviour:
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyDeath: {fileID: 7408111602144769935}
   _hpBoosterPrefab: {fileID: 7647744435022604426, guid: bd93acb488f8d484ea1d4e4fdded8408, type: 3}
-  _probability: 101
+  _probability: 99
 --- !u!114 &8727161604330958721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

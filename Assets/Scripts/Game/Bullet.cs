@@ -1,8 +1,7 @@
-using TDS.Game;
 using TDS.Utility;
 using UnityEngine;
 
-namespace TDS
+namespace TDS.Game
 {
     public class Bullet : MonoBehaviour
     {

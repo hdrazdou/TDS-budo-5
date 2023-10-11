@@ -8,6 +8,14 @@ namespace TDS.Utility
     {
         #region Public methods
 
+        public static IEnumerator StartFrameTimer(this MonoBehaviour mono, int numberOfFrames, Action callback)
+        {
+            IEnumerator timer = mono.CreateFrameTimer(numberOfFrames, callback);
+            mono.StartCoroutine(timer);
+
+            return timer;
+        }
+
         public static IEnumerator StartTimer(this MonoBehaviour mono, float time, Action callback)
         {
             IEnumerator timer = mono.CreateTimer(time, callback);
@@ -19,6 +27,15 @@ namespace TDS.Utility
         #endregion
 
         #region Private methods
+
+        private static IEnumerator CreateFrameTimer(this MonoBehaviour mono, int numberOfFrames, Action callback)
+        {
+            for (int i = 0; i < numberOfFrames; i++)
+            {
+                yield return null;
+            }
+            callback?.Invoke();
+        }
 
         private static IEnumerator CreateTimer(this MonoBehaviour mono, float time, Action callback)
         {
