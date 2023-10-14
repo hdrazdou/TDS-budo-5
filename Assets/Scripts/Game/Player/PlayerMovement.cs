@@ -8,6 +8,7 @@ namespace TDS.Game.Player
 
         [Header("Components")]
         [SerializeField] private PlayerAnimation _animation;
+        [SerializeField] private Rigidbody2D _rb;
 
         [Header("Settings")]
         [SerializeField] private float _speed = 5f;
@@ -31,10 +32,7 @@ namespace TDS.Game.Player
             Vector2 input = new(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             Vector2 velocity = input * _speed;
 
-            Vector3 currentPosition = transform.position;
-            currentPosition.x += velocity.x * Time.deltaTime;
-            currentPosition.y += velocity.y * Time.deltaTime;
-            transform.position = currentPosition;
+            _rb.velocity = velocity;
 
             _animation.SetSpeed(velocity.magnitude);
         }

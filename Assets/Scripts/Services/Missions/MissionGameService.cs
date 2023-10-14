@@ -12,6 +12,11 @@ namespace TDS.Services.Missions
         private readonly MissionFactory _factory = new();
 
         private BaseMission _currentMission;
+
+        #endregion
+
+        #region Events
+
         public event Action OnCompleted;
 
         #endregion

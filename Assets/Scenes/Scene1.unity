@@ -4771,6 +4771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animation: {fileID: 814132490}
+  _rb: {fileID: 814132493}
   _speed: 5
 --- !u!4 &814132488
 Transform:

@@ -22,7 +22,7 @@ namespace TDS.Services.Missions
                 mission.SetCondition(reachDestinationMissionCondition);
                 return mission;
             }
-            
+
             if (condition is KillAllEnemiesMissionCondition killAllEnemiesMissionCondition)
             {
                 KillAllEnemiesMission mission = new();
