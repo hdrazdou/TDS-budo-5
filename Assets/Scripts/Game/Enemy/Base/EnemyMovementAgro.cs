@@ -64,6 +64,8 @@ namespace TDS.Game.Enemy
 
         private void OnObserverStay(Collider2D other)
         {
+            Debug.Log($"EnemyMovementAgro OnObserverStay");
+            
             if (_isFollowing)
             {
                 return;
@@ -81,6 +83,8 @@ namespace TDS.Game.Enemy
 
             _isFollowing = true;
             SetTarget(other.transform);
+            
+            
         }
 
         private void SetTarget(Transform otherTransform)

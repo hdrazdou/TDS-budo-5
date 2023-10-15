@@ -243,7 +243,7 @@ Transform:
   - {fileID: 6501222348936886315}
   - {fileID: 931858546394497915}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &649718263399932659
 MonoBehaviour:
@@ -347,10 +347,10 @@ MonoBehaviour:
   _enemyMovement: {fileID: 8238216094265614059}
   _movementAgroCollider: {fileID: 251498972967529775}
   _idle: {fileID: 5765596087019263402}
+  _radius: 5
   obstaclesMask:
     serializedVersion: 2
     m_Bits: 0
-  _radius: 5
 --- !u!114 &3706821050077471126
 MonoBehaviour:
   m_ObjectHideFlags: 0

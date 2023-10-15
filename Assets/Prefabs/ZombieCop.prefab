@@ -43,7 +43,7 @@ Transform:
   - {fileID: 1160144470324631073}
   - {fileID: 1677166813362993664}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3087021717653814382
 MonoBehaviour:
@@ -146,8 +146,11 @@ MonoBehaviour:
   _triggerObserver: {fileID: 3040635034951502010}
   _enemyMovement: {fileID: 1582543503769287380}
   _movementAgroCollider: {fileID: 3268511022194425284}
-  idle: {fileID: 8727161604330958721}
+  _idle: {fileID: 8727161604330958721}
   _radius: 5
+  obstaclesMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &3044085656198304368
 MonoBehaviour:
   m_ObjectHideFlags: 0
