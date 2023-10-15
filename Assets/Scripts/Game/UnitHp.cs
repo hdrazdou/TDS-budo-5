@@ -38,6 +38,8 @@ namespace TDS.Game
             }
         }
 
+        public int Max => _maxHp;
+
         #endregion
 
         #region Unity lifecycle

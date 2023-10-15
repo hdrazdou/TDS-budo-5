@@ -4,7 +4,6 @@ namespace TDS.Services.SceneLoading
     {
         #region Variables
 
-        public const string Game = "Scene1";
         public const string Menu = "MenuScene";
 
         #endregion

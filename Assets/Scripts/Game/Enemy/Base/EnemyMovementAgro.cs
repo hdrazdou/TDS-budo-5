@@ -10,10 +10,13 @@ namespace TDS.Game.Enemy
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private EnemyMovement _enemyMovement;
         [SerializeField] private CircleCollider2D _movementAgroCollider;
-        [SerializeField] private EnemyIdle idle;
+        [SerializeField] private EnemyIdle _idle;
 
         [Header("Settings")]
         [SerializeField] private float _radius;
+        [SerializeField] private LayerMask obstaclesMask;
+
+        private bool _isFollowing;
 
         private Vector3 _spawnSpot;
 
@@ -33,14 +36,14 @@ namespace TDS.Game.Enemy
 
         private void OnEnable()
         {
-            _triggerObserver.OnEnter += OnObserverEnter;
             _triggerObserver.OnExit += OnObserverExit;
+            _triggerObserver.OnStay += OnObserverStay;
         }
 
         private void OnDisable()
         {
-            _triggerObserver.OnEnter -= OnObserverEnter;
             _triggerObserver.OnExit -= OnObserverExit;
+            _triggerObserver.OnStay -= OnObserverStay;
         }
 
         private void OnDrawGizmosSelected()
@@ -53,14 +56,31 @@ namespace TDS.Game.Enemy
 
         #region Private methods
 
-        private void OnObserverEnter(Collider2D other)
-        {
-            SetTarget(other.transform);
-        }
-
         private void OnObserverExit(Collider2D other)
         {
+            _isFollowing = false;
             SetTarget(null);
+        }
+
+        private void OnObserverStay(Collider2D other)
+        {
+            if (_isFollowing)
+            {
+                return;
+            }
+
+            //TODO: visibility zone
+
+            Vector3 direction = other.transform.position - transform.position;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, direction.magnitude, obstaclesMask);
+
+            if (hit.transform != null)
+            {
+                return;
+            }
+
+            _isFollowing = true;
+            SetTarget(other.transform);
         }
 
         private void SetTarget(Transform otherTransform)
@@ -70,15 +90,15 @@ namespace TDS.Game.Enemy
                 _enemyMovement.SetTarget(otherTransform);
             }
 
-            if (idle != null)
+            if (_idle != null)
             {
                 if (otherTransform == null)
                 {
-                    idle.Activate();
+                    _idle.Activate();
                 }
                 else
                 {
-                    idle.Deactivate();
+                    _idle.Deactivate();
                 }
             }
         }

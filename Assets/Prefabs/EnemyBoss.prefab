@@ -346,7 +346,10 @@ MonoBehaviour:
   _triggerObserver: {fileID: 131995226544129606}
   _enemyMovement: {fileID: 8238216094265614059}
   _movementAgroCollider: {fileID: 251498972967529775}
-  idle: {fileID: 5765596087019263402}
+  _idle: {fileID: 5765596087019263402}
+  obstaclesMask:
+    serializedVersion: 2
+    m_Bits: 0
   _radius: 5
 --- !u!114 &3706821050077471126
 MonoBehaviour:

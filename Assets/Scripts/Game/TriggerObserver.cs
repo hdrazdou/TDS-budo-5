@@ -10,6 +10,7 @@ namespace TDS.Game
 
         public event Action<Collider2D> OnEnter;
         public event Action<Collider2D> OnExit;
+        public event Action<Collider2D> OnStay;
 
         #endregion
 
@@ -18,6 +19,11 @@ namespace TDS.Game
         private void OnTriggerEnter2D(Collider2D other)
         {
             OnEnter?.Invoke(other);
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            OnStay?.Invoke(other);
         }
 
         private void OnTriggerExit2D(Collider2D other)
