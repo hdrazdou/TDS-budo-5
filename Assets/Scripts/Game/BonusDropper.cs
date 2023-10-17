@@ -1,3 +1,4 @@
+using Lean.Pool;
 using TDS.Game.Enemy;
 using Unity.Mathematics;
 using UnityEngine;
@@ -37,7 +38,7 @@ namespace TDS.Game
 
             if (_probability > random)
             {
-                Instantiate(_hpBoosterPrefab, transform.position, quaternion.identity);
+                LeanPool.Spawn(_hpBoosterPrefab, transform.position, quaternion.identity);
             }
         }
 

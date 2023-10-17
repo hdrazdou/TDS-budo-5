@@ -14,7 +14,7 @@ namespace TDS.Game.Enemy
 
         [Header("Settings")]
         [SerializeField] private float _radius;
-        [SerializeField] private LayerMask obstaclesMask;
+        [SerializeField] private LayerMask _obstaclesMask;
 
         private bool _isFollowing;
 
@@ -64,8 +64,6 @@ namespace TDS.Game.Enemy
 
         private void OnObserverStay(Collider2D other)
         {
-            Debug.Log($"EnemyMovementAgro OnObserverStay");
-            
             if (_isFollowing)
             {
                 return;
@@ -74,7 +72,7 @@ namespace TDS.Game.Enemy
             //TODO: visibility zone
 
             Vector3 direction = other.transform.position - transform.position;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, direction.magnitude, obstaclesMask);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, direction.magnitude, _obstaclesMask);
 
             if (hit.transform != null)
             {
@@ -83,8 +81,6 @@ namespace TDS.Game.Enemy
 
             _isFollowing = true;
             SetTarget(other.transform);
-            
-            
         }
 
         private void SetTarget(Transform otherTransform)
