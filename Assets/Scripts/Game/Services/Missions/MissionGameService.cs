@@ -3,7 +3,7 @@ using TDS.Infrastructure.Locator;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace TDS.Services.Missions
+namespace TDS.Game.Services.Missions
 {
     public class MissionGameService : IService
     {

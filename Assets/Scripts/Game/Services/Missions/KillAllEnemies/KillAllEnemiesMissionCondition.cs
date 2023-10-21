@@ -1,4 +1,4 @@
-namespace TDS.Services.Missions
+namespace TDS.Game.Services.Missions
 {
     public class KillAllEnemiesMissionCondition : MissionCondition { }
 }

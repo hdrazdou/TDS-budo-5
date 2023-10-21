@@ -1,10 +1,11 @@
+using TDS.Game.Services;
+using TDS.Game.Services.Coroutine;
 using TDS.Game.Services.Gameplay;
 using TDS.Game.Services.Input;
 using TDS.Game.Services.LevelManagement;
+using TDS.Game.Services.Missions;
+using TDS.Game.Services.SceneLoading;
 using TDS.Infrastructure.Locator;
-using TDS.Services.Coroutine;
-using TDS.Services.Missions;
-using TDS.Services.SceneLoading;
 using UnityEngine;
 
 namespace TDS.Infrastructure.State
@@ -25,11 +26,19 @@ namespace TDS.Infrastructure.State
 
             SceneLoadingService sceneLoadingService = new();
             ServiceLocator.Register(sceneLoadingService);
+
             MissionGameService missionGameService = new();
             ServiceLocator.Register(missionGameService);
+
             LevelManagementService levelManagementService = new(sceneLoadingService);
             ServiceLocator.Register(levelManagementService);
+
             ServiceLocator.RegisterMonobeh<CoroutineRunner>();
+            
+            CoroutineRunner coroutineRunner = ServiceLocator.Get<CoroutineRunner>();
+            LevelService levelService = new(StateMachine, coroutineRunner);
+            ServiceLocator.Register(levelService);
+
             ServiceLocator.Register(new GameplayService(missionGameService, levelManagementService, StateMachine));
 
 #if UNITY_STANDALONE

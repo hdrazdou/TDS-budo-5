@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Services.Missions
+namespace TDS.Game.Services.Missions
 {
     public class MissionHolder : MonoBehaviour
     {

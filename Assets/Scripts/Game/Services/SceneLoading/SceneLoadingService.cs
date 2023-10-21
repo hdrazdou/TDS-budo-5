@@ -1,7 +1,7 @@
 using TDS.Infrastructure.Locator;
 using UnityEngine.SceneManagement;
 
-namespace TDS.Services.SceneLoading
+namespace TDS.Game.Services.SceneLoading
 {
     public class SceneLoadingService : IService
     {

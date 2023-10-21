@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Services.Missions.Complex
+namespace TDS.Game.Services.Missions.Complex
 {
     public class ComplexMissionCondition : MissionCondition
     {

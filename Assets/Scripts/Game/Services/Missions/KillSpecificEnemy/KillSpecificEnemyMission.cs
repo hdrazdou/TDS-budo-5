@@ -1,6 +1,6 @@
 using TDS.Game.Enemy;
 
-namespace TDS.Services.Missions
+namespace TDS.Game.Services.Missions
 {
     public class KillSpecificEnemyMission : BaseMission<KillSpecificEnemyMissionCondition>
     {

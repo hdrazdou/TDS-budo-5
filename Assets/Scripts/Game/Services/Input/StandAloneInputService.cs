@@ -22,12 +22,16 @@ namespace TDS.Game.Services.Input
 
         public void Dispose()
         {
+            Debug.Log($"StandAloneInputService Dispose");
+            
             _camera = null;
             _playerMovementTransform = null;
         }
 
         public void Initialize(Camera camera, Transform playerMovementTransform)
         {
+            Debug.Log($"StandAloneInputService Initialize");
+
             _camera = camera;
             _playerMovementTransform = playerMovementTransform;
         }
@@ -40,7 +44,11 @@ namespace TDS.Game.Services.Input
         {
             Vector3 worldMousePosition = _camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
             worldMousePosition.z = 0;
+            Debug.Log($"StandAloneInputService GetLookDirection");
             return worldMousePosition - _playerMovementTransform.position;
+            
+            
+
         }
 
         #endregion

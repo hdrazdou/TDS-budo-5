@@ -31,8 +31,9 @@ namespace TDS.Game
             if (other.TryGetComponent(out UnitHp unitHp))
             {
                 unitHp.Change(-_damage);
-                DestroyThis();
             }
+
+            DestroyThis();
         }
 
         #endregion

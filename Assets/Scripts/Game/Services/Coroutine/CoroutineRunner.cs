@@ -1,7 +1,7 @@
 using TDS.Infrastructure.Locator;
 using UnityEngine;
 
-namespace TDS.Services.Coroutine
+namespace TDS.Game.Services.Coroutine
 {
     public class CoroutineRunner : MonoBehaviour, IService { }
 }

@@ -23,7 +23,7 @@ namespace TDS.Game.Enemy
 
         private void Update()
         {
-            if (Vector3.Distance(_startPositionTransform.position, transform.position) <= 0.3f)
+            if (Vector3.Distance(_startPositionTransform.position, transform.position) <= 1.6f)
             {
                 _enemyMovement.SetTarget(null);
             }

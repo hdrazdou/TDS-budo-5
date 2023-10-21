@@ -4762,7 +4762,6 @@ GameObject:
   m_Component:
   - component: {fileID: 520273364}
   - component: {fileID: 520273363}
-  - component: {fileID: 520273362}
   - component: {fileID: 520273365}
   m_Layer: 14
   m_Name: Teleport
@@ -4771,20 +4770,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &520273362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520273361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e99a5a23b024b13b9fd7ba447464657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _loadDelay: 2
-  _sceneLoader: {fileID: 1074769299}
 --- !u!61 &520273363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5080,7 +5065,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &814132494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5358,6 +5343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1321833332}
   - component: {fileID: 1321833333}
+  - component: {fileID: 1321833334}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5409,6 +5395,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1321833334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321833331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8381358bd66842508ba731103edd4dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainTransform: {fileID: 814132488}
 --- !u!1 &1396427021
 GameObject:
   m_ObjectHideFlags: 0
@@ -6833,7 +6832,39 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
@@ -7095,7 +7126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648774838963847497, guid: 21292725b441d4720bcb65c61c38e5a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 7648774838963847497, guid: 21292725b441d4720bcb65c61c38e5a7, type: 3}
       propertyPath: m_LocalPosition.z

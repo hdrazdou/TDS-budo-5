@@ -1,7 +1,6 @@
-using TDS.Game;
 using UnityEngine;
 
-namespace TDS.Services.Missions.ReachDestination
+namespace TDS.Game.Services.Missions.ReachDestination
 {
     public class ReachDestinationMissionCondition : MissionCondition
     {

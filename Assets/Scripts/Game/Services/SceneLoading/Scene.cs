@@ -1,4 +1,4 @@
-namespace TDS.Services.SceneLoading
+namespace TDS.Game.Services.SceneLoading
 {
     public static class Scene
     {

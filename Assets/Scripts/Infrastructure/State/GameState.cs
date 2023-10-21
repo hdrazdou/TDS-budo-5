@@ -1,10 +1,11 @@
 using TDS.Game.Player;
+using TDS.Game.Services;
+using TDS.Game.Services.Coroutine;
 using TDS.Game.Services.Gameplay;
 using TDS.Game.Services.Input;
 using TDS.Game.Services.LevelManagement;
+using TDS.Game.Services.Missions;
 using TDS.Infrastructure.Locator;
-using TDS.Services.Coroutine;
-using TDS.Services.Missions;
 using TDS.Utility;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace TDS.Infrastructure.State
         #region Variables
 
         private PlayerMovement _playerMovement;
+        private PlayerDeath _playerDeath;
 
         #endregion
 
@@ -42,6 +44,7 @@ namespace TDS.Infrastructure.State
             ServiceLocator.Get<MissionGameService>().Dispose();
             ServiceLocator.Get<GameplayService>().Dispose();
             ServiceLocator.Get<IInputService>().Dispose();
+            ServiceLocator.Get<LevelService>().Dispose();
         }
 
         #endregion
@@ -52,6 +55,9 @@ namespace TDS.Infrastructure.State
         {
             ServiceLocator.Get<MissionGameService>().Initialize();
             ServiceLocator.Get<GameplayService>().Initialize();
+            
+            _playerDeath = Object.FindObjectOfType<PlayerDeath>();
+            ServiceLocator.Get<LevelService>().Initialize(_playerDeath);
 
             _playerMovement = Object.FindObjectOfType<PlayerMovement>();
             Transform playerMovementTransform = _playerMovement.transform;
