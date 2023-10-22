@@ -46,6 +46,11 @@ namespace TDS.Game.Enemy
 
         #region Public methods
 
+        public void PerformAttackForced()
+        {
+            OnPerformAttack();
+        }
+
         public void StartAttack()
         {
             _needAttack = true;

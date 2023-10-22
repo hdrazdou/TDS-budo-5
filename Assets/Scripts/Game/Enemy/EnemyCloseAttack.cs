@@ -46,6 +46,7 @@ namespace TDS.Game.Enemy
 
         private void OnCloseAttackHit()
         {
+            Debug.Log("EnemyCloseAttack OnCloseAttackHit");
             Collider2D[] colliders = Physics2D.OverlapCircleAll(_hitTransform.position, _hitRadius, _playerMask);
 
             foreach (Collider2D collider in colliders)

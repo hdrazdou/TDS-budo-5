@@ -9,6 +9,7 @@ namespace TDS.Game.Enemy
         #region Variables
 
         private static readonly int Attack = Animator.StringToHash("Attack");
+        private static readonly int AttackIndex = Animator.StringToHash("AttackIndex");
         private static readonly int Death = Animator.StringToHash("Death");
         private static readonly int Speed = Animator.StringToHash("Speed");
 
@@ -32,6 +33,11 @@ namespace TDS.Game.Enemy
         public void PlayDeath()
         {
             _animator.SetTrigger(Death);
+        }
+
+        public void SetAttackIndex(int index)
+        {
+            _animator.SetFloat(AttackIndex, index);
         }
 
         public void SetSpeed(float value)

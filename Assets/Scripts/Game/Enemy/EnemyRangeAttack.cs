@@ -31,6 +31,8 @@ namespace TDS.Game.Enemy
 
             Vector3 direction = _playerTransform.position - transform.position;
             Instantiate(_bulletPrefab, _bulletSpawnSpot.position, transform.rotation);
+            Debug.Log($"EnemyRangeAttack OnPerformAttack");
+
         }
 
         #endregion
