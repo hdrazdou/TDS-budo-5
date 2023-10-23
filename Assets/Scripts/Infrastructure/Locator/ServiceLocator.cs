@@ -55,12 +55,12 @@ namespace TDS.Infrastructure.Locator
             _servicesByTypes.Add(key, service);
         }
 
-        public void RegisterMonobeh<T>() where T : MonoBehaviour, IService
+        public void RegisterMonoBeh<T>() where T : Component, IService
         {
             Type key = typeof(T);
             if (_servicesByTypes.ContainsKey(key))
             {
-                Debug.Log($"[{LogTag}:{nameof(RegisterMonobeh)}] Duplicate register of services {key}");
+                Debug.Log($"[{LogTag}:{nameof(RegisterMonoBeh)}] Duplicate register of services {key}");
                 return;
             }
 

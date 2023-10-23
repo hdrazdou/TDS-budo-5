@@ -1,4 +1,5 @@
 using Lean.Pool;
+using TDS.Game.Services.Input;
 using UnityEngine;
 
 namespace TDS.Game.Player
@@ -14,16 +15,33 @@ namespace TDS.Game.Player
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnSpot;
 
+        private IInputService _inputService;
+
         #endregion
 
         #region Unity lifecycle
 
-        private void Update()
+        private void OnEnable()
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (_inputService != null)
             {
-                Fire();
+                _inputService.OnAttack += Fire;
             }
+        }
+
+        private void OnDisable()
+        {
+            _inputService.OnAttack -= Fire;
+        }
+
+        #endregion
+
+        #region Public methods
+
+        public void Construct(IInputService inputService)
+        {
+            _inputService = inputService;
+            _inputService.OnAttack += Fire;
         }
 
         #endregion

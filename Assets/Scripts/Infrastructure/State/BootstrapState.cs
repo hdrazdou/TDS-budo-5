@@ -33,8 +33,8 @@ namespace TDS.Infrastructure.State
             LevelManagementService levelManagementService = new(sceneLoadingService);
             ServiceLocator.Register(levelManagementService);
 
-            ServiceLocator.RegisterMonobeh<CoroutineRunner>();
-            
+            ServiceLocator.RegisterMonoBeh<CoroutineRunner>();
+
             CoroutineRunner coroutineRunner = ServiceLocator.Get<CoroutineRunner>();
             LevelService levelService = new(StateMachine, coroutineRunner);
             ServiceLocator.Register(levelService);
@@ -42,9 +42,12 @@ namespace TDS.Infrastructure.State
             ServiceLocator.Register(new GameplayService(missionGameService, levelManagementService, StateMachine));
 
 #if UNITY_STANDALONE
-            ServiceLocator.Register<IInputService>(new StandAloneInputService());
+            ServiceLocator.RegisterMonoBeh<StandAloneInputService>();
 #elif UNITY_ANDROID || UNITY_IOS
-            ServiceLocator.Register<IInputService>(new MobileInputSErvice());
+            ServiceLocator.Register<IInputService>(new MobileInputService());
+#else
+            Debug.LogError($"[InputService] Unsupported platform. Choosing StandAlone");
+            ServiceLocator.RegisterMonoBeh<StandAloneInputService>();
 #endif
 
             StateMachine.Enter<MenuState>();
